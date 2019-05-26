@@ -1,0 +1,44 @@
+{
+  "name": "stockticker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.4",
+    "highcharts": "^6.1.0",
+    "moment": "^2.22.2",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
+    "react": "^16.4.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.0",
+    "react-highcharts": "^16.0.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^3.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
