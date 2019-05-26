@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios'
-import { Route, Switch } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import StockList from './components/stocks/StockList'
-import StockInfo from './components/stocks/info/StockInfo'
+import axios from 'axios';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import StockList from './components/stocks/StockList';
+import StockInfo from './components/stocks/info/StockInfo';
 
 
 
@@ -19,7 +19,7 @@ class App extends Component {
   componentWillMount() {
     if(localStorage.getItem('stocks')) {
       let stocks = JSON.parse(localStorage.getItem('stocks'));
-      this.setState({ stocks })
+      this.setState({ stocks });
     }
   }
 
@@ -39,17 +39,17 @@ class App extends Component {
   }
 
   updateStocks = (idx, symbol) => {
-    let updatedStocks = [...this.state.stocks]
-    updatedStocks[idx] = symbol
+    let updatedStocks = [...this.state.stocks];
+    updatedStocks[idx] = symbol;
 
     this.setState({
       stocks: updatedStocks,
     })
 
-    localStorage.setItem('stocks', JSON.stringify(updatedStocks))
-    this.fetchStocksData()
+    localStorage.setItem('stocks', JSON.stringify(updatedStocks));
+    this.fetchStocksData();
 
-  }
+  };
 
   render() {
     const { stocks, stocksData } = this.state;
@@ -70,7 +70,7 @@ class App extends Component {
               )}
             />
 
-            <Route exact path='/:symbol' 
+            <Route exact path='/stock/:symbol' 
               render={ props => (
                 <StockInfo 
                   symbol={props.match.params.symbol} 

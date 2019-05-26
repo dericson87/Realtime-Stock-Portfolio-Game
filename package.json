@@ -1,11 +1,13 @@
 {
   "name": "Realtime-Stock-Portfolio-Game",
+  "proxy": "http://localhost:3001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "babel": "^6.23.0",
     "babel-loader": "^7.1.4",
+    "concurrently": "^4.1.0",
     "highcharts": "^6.1.0",
     "moment": "^2.22.2",
     "passport": "^0.4.0",
@@ -24,7 +26,7 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"node server/bin/www\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

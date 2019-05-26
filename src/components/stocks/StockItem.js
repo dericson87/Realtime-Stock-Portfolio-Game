@@ -13,7 +13,7 @@ const StockItem = ({ index, symbol, stockData, updateStocks }) => {
         <i className="fa fa-trash"></i>
       </div>
 
-      <Link to={`/${symbol}`}>
+      <Link to={`/stock/${symbol}`}>
       <div className='stock-item'>
         <h3>{symbol}</h3>
         <i>{stockData && companyName}</i>
