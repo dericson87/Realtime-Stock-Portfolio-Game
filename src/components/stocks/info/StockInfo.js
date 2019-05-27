@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import History from '../details/History';
 import NewsFeed from '../details/NewsFeed';
-
+import homebutton from '../../../images/homebutton.png';
+import marketnews from '../../../images/marketnews.png';
+import fivedaypath from '../../../images/fivedaypath.png';
 class StockInfo extends Component {
 
   fetchHistory = () => {
@@ -64,16 +66,17 @@ class StockInfo extends Component {
 
         {stockData ? 
         <div className='stock-details-data'>
-          
+           <img class="fivedaypath" src={fivedaypath} alt="5 Day Price Movement"/>
           <div className='history'>
-            <h3><i className="fa fa-calendar"></i> 5-Day Chart</h3>
+         
+          
             {this.fetchHistory()}
           </div>
 
-          <div className='news'>
-            <h3><i className="fa fa-newspaper-o"></i> {companyName} News Stories</h3>
+          
+          <img class="marketnews" src={marketnews} alt="News Feed"/>
             {this.fetchNewsFeed()}
-          </div>
+         
         </div>
         :
         <div className='stock-info-data'>
@@ -82,9 +85,9 @@ class StockInfo extends Component {
         }
 
         <Link to='/'>
-          <div className='back'>
-            <span>Back</span>
-          </div>
+          
+            <img class="homebutton" src={homebutton} alt="Home Page"/>
+          
         </Link>
       </div>
     )

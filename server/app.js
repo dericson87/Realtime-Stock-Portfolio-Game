@@ -32,15 +32,20 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy({
     clientID: '561311346728-12kk21om7rjfksssh4qg9qi27qu568kp.apps.googleusercontent.com',
     clientSecret: 'RaSICxnN0JwM9XYc7Oli0_Z2',
-    callbackURL: "http://localhost:3000"
+    callbackURL: "http://localhost:3001/logedin"
   },
   function(accessToken, refreshToken, profile, done) {
+      console.log(profile);
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
          console.log('finduserorcreate');
          return done(err, user);
        });
   }
 ));
+app.use('logedin',(req, res) => {
+  console.log(req);
+  app.redirect('/');
+});
 app.get('/login', 
   passport.authenticate('google', {
     scope: 'https://www.googleapis.com/auth/plus.login',

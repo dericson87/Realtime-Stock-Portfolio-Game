@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import User from '../User';
 import axios from 'axios';
+import stocklogo from '../images/stocklogo.png';
+
 
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -34,15 +36,13 @@ const Header = props => {
   return (
     <header>
       <Link to='/'>
-        <h1>Stock Search</h1>
+      <img class="logo" src={stocklogo} alt="Stock Scraper Loop"/>
       </Link>
       {/* <Link to='/login'>
         <h2>Login</h2>
       </Link> */}
       <button onClick={onclick}>Login</button>
-      <Link to='/'>
-        <h2>Register</h2>
-      </Link>
+     
    </header>
   )
 }

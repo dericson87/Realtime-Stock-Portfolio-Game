@@ -12,7 +12,7 @@ import StockInfo from './components/stocks/info/StockInfo';
 class App extends Component {
 
     state = {
-      stocks: ['NFLX', 'TSLA', 'SPOT', 'AMZN', 'AAPL'],
+      stocks: ['NFLX', 'TSLA', 'MSFT', 'AMZN', 'AAPL'],
       stocksData: {},
     }
 
