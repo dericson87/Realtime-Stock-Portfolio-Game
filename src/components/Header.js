@@ -4,34 +4,11 @@ import User from '../User';
 import axios from 'axios';
 import stocklogo from '../images/stocklogo.png';
 
-
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
-
-passport.use(new GoogleStrategy({
-    clientID: '561311346728-12kk21om7rjfksssh4qg9qi27qu568kp.apps.googleusercontent.com',
-    clientSecret: 'RaSICxnN0JwM9XYc7Oli0_Z2',
-    callbackURL: "http://stocktracka.herokuapp.com"
-  },
-  function(accessToken, refreshToken, profile, done) {
-       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-         console.log('finduserorcreate');
-         return done(err, user);
-       });
-  }
-));
-
 function onclick(event) {
   console.log('onclick');
-  axios.get(`/api`).then((res)=>console.log('got from express: ' + res));
-
-  passport.authenticate('google', { failureRedirect: '/failure' },
-  function(req, res) {
-    console.log("logged in");
-    res.redirect('/');
-  });
+  window.location.href = '/login';
 }
+
 const Header = props => {
   return (
     <header>

@@ -1,6 +1,12 @@
 {
-  "main.css": "static/css/main.1170e896.css",
-  "main.css.map": "static/css/main.1170e896.css.map",
-  "main.js": "static/js/main.3019fd07.js",
-  "main.js.map": "static/js/main.3019fd07.js.map"
+  "main.css": "static/css/main.64c9f740.css",
+  "main.css.map": "static/css/main.64c9f740.css.map",
+  "main.js": "static/js/main.bcbc7b82.js",
+  "main.js.map": "static/js/main.bcbc7b82.js.map",
+  "static/media/DerekEricson.png": "static/media/DerekEricson.0c802ebe.png",
+  "static/media/fivedaypath.png": "static/media/fivedaypath.f81b406b.png",
+  "static/media/homebutton.png": "static/media/homebutton.b48c9a99.png",
+  "static/media/mainbg2.jpg": "static/media/mainbg2.9d980cf3.jpg",
+  "static/media/marketnews.png": "static/media/marketnews.c835994e.png",
+  "static/media/stocklogo.png": "static/media/stocklogo.ffb62c59.png"
 }

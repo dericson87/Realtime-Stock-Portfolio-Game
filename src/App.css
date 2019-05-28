@@ -95,8 +95,8 @@ main {
 .stock-item-wrapper,
 .stock-form {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 275px;
+  height: 275px;
   margin: 5px;
   border-radius: 5px;
 }
@@ -338,122 +338,17 @@ footer {
 
 
 @media screen and (max-width: 700px) {
-  header {
-    justify-content: center;
-  }
-
-  header .logo {
-    margin-left: 0;
-  }
-
-  .stock-items {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .stock-item-wrapper,
-  .stock-form {
-    width: 90vw;
-    height: 75px;
+body {
+  background-image:none;
+  background-color:whitesmoke;
+}
+ .summary, .marketnews, .history-icon, .news-item, .stock-list, .stock-form, .history, .news, .current, .stock-header, .stock-symbol, .stock-wrapper {
+    width:400px;
+    display:block;
+ 
+    font-size:20px;
+ 
+    margin-top:5px;
   }
   
-  .stock-item {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
-    box-sizing: border-box;
-  }
-
-  .stock-form form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .stock-form input {
-    margin-bottom: 0;
-    width: 50%;
-  }
-
-  .stock-form button {
-    width: 50px;
-  }
-
-  .stock-header {
-    grid-template-columns: 105px 1fr 1fr;
-    grid-template-rows: 50px 50px 50px;
-  }
-
-  .stock-logo {
-    grid-area: 1 / 1 / 3 / 2;
-    align-self: center;
-    justify-self: center;
-  }
-
-  .stock-symbol {
-    grid-area: 1 / 2 / 2 / 4;
-    justify-self: center;
-    margin: 0px;
-  }
-
-  .stock-company-name {
-    font-size: 20px;
-    grid-area: 3 / 1 / 4 / 4;
-    padding: 0px 15px;
-  }
-  
-  .current {
-    grid-area: 2 / 2 / 3 / 4;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .history {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 10px auto;
-  } 
-
-  .history h2 {
-    align-self: flex-start;
-  }
-
-  .history {
-    display: grid;
-    grid-template-columns: 75px 1fr 100px;
-    padding: 0px;
-    border-bottom: 2px solid #3C455C;
-    border-right: 2px solid #3C455C;
-    border-radius: 0px;
-  }
-
-  .history:nth-child(2) {
-    border-top: 2px solid #3C455C;
-    border-radius: 0px;
-  }
-
-  .history:last-child {
-    border-radius: 0px;
-  }
-
-  .history .history-label {
-    align-self: center;
-    padding: 7px;
-  }
-
-  .history .closing-price {
-    align-self: center;
-    font-size: 32px;
-    padding: 5px;
-  }
-
-  .history .prices > p {
-    align-self: center;
-    font-size: 24px;
-  }
 }

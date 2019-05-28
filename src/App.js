@@ -12,18 +12,28 @@ import StockInfo from './components/stocks/info/StockInfo';
 class App extends Component {
 
     state = {
-      stocks: ['NFLX', 'TSLA', 'MSFT', 'AMZN', 'AAPL'],
+      // stocks: ['NFLX', 'TSLA', 'MSFT', 'AMZN', 'AAPL'],
+      stocks: ['NFLX'],
       stocksData: {},
+      user: null
     }
 
   componentWillMount() {
-    if(localStorage.getItem('stocks')) {
-      let stocks = JSON.parse(localStorage.getItem('stocks'));
-      this.setState({ stocks });
-    }
+    // if(localStorage.getItem('stocks')) {
+    //   let stocks = JSON.parse(localStorage.getItem('stocks'));
+    //   this.setState({ stocks });
+    // }
+    // const users = await axios.get('/api/users').then((res)=>{
+    //   console.log(res);
+    //   this.setState({ stocks: res.data['Derek'] });
+    // });
   }
 
   componentDidMount() {
+    axios.get('/api/users', {withCredentials: true}).then((res)=>{
+      console.log(res);
+      this.setState({ stocks: res.data['Derek']});
+    });
     this.fetchStocksData(); // fetch stock data on mount
     setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
   }
@@ -46,12 +56,19 @@ class App extends Component {
       stocks: updatedStocks,
     })
 
-    localStorage.setItem('stocks', JSON.stringify(updatedStocks));
     this.fetchStocksData();
-
+    axios.post('/api/set-stocks', {user:'Derek', stocks: updatedStocks});
   };
 
   render() {
+    if(this.state.user === null) {
+      return (
+        <div className="App">
+         <Header />
+        </div>
+      );
+    }
+
     const { stocks, stocksData } = this.state;
 
     return (
