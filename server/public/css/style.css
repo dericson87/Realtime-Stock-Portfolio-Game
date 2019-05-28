@@ -150,7 +150,7 @@ p {
 	background-position: center center;
 }
 .style1 .login-box{
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 0 auto;
 	width: 100%;
 	background: url(../images/mainbg4.jpg) #ffffff no-repeat;
@@ -176,6 +176,9 @@ p {
 	color: #222222;
 	font-size: 25px;
 }
+#stocklogo {
+	margin-left:25px;
+}
 .style1 .login-form-box{
 	background: #ffffff no-repeat;
 	background-size: cover;
@@ -187,11 +190,11 @@ p {
 	border-radius: 5px;
 	position: absolute;
 	overflow: hidden;
-	right: -55px;
+	right: 25px;
 	-webkit-box-shadow: 20px 22px 58px 3px rgba(0, 0, 0, .50);
 	-moz-box-shadow: 20px 22px 58px 3px rgba(0, 0, 0, .50);
 	box-shadow: 20px 22px 58px 3px rgba(0, 0, 0, .50);
-	opacity:0.8;
+	opacity:0.9;
 }
 .login-style1{
 	background: url(../images/blackwood.jpg);
