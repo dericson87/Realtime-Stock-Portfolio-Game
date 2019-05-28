@@ -5,6 +5,8 @@ import NewsFeed from '../details/NewsFeed';
 import homebutton from '../../../images/homebutton.png';
 import marketnews from '../../../images/marketnews.png';
 import fivedaypath from '../../../images/fivedaypath.png';
+import buybutton from '../../../images/buybutton.jpg';
+import sellbutton from '../../../images/sellbutton.jpg';
 class StockInfo extends Component {
 
   fetchHistory = () => {
@@ -61,6 +63,8 @@ class StockInfo extends Component {
                   {(Math.abs(changePercent) * 100).toFixed(2)}%
                 </span>
               </p>
+              <button class="buybutton" src={buybutton}/>
+              <button class="sellbutton" src={sellbutton}/>
             </div>}
         </div>
 
