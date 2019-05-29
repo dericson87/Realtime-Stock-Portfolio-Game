@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+#google {
+	width:75px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
 html {
 	-webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
 	width: 100%;
