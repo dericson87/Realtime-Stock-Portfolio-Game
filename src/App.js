@@ -13,7 +13,7 @@ class App extends Component {
 
     state = {
       // stocks: ['NFLX', 'TSLA', 'MSFT', 'AMZN', 'AAPL'],
-      stocks: ['NFLX'],
+      stocks: ['TSLA', null, null, null, null],
       stocksData: {},
       user: null
     }

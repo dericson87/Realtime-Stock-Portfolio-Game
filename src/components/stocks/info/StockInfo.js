@@ -5,8 +5,7 @@ import NewsFeed from '../details/NewsFeed';
 import homebutton from '../../../images/homebutton.png';
 import marketnews from '../../../images/marketnews.png';
 import fivedaypath from '../../../images/fivedaypath.png';
-import buybutton from '../../../images/buybutton.jpg';
-import sellbutton from '../../../images/sellbutton.jpg';
+
 class StockInfo extends Component {
 
   fetchHistory = () => {
@@ -53,7 +52,7 @@ class StockInfo extends Component {
           {stockData && <i className='stock-company-name'>({companyName})</i>}
 
           {stockData && 
-            <div className='current'>
+            <div id="currentwrap" className='current'>
               <h3>${latestPrice.toFixed(2)}</h3>
 
               <p style={{color: change === 0 ? 'green' : change > 0 ? 'green' : 'red'}}>
