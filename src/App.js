@@ -30,9 +30,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/users', {withCredentials: true}).then((res)=>{
+    axios.get('/api/user_stocks', {withCredentials: true}).then((res)=>{
       console.log(res);
-      this.setState({ stocks: res.data['Derek']});
+      this.setState({ stocks: res.data });
     });
     this.fetchStocksData(); // fetch stock data on mount
     setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
@@ -57,17 +57,10 @@ class App extends Component {
     })
 
     this.fetchStocksData();
-    axios.post('/api/set-stocks', {user:'Derek', stocks: updatedStocks});
+    axios.post('/api/set-stocks', { stocks: updatedStocks });
   };
 
   render() {
-    if(this.state.user === null) {
-      return (
-        <div className="App">
-         <Header />
-        </div>
-      );
-    }
 
     const { stocks, stocksData } = this.state;
 

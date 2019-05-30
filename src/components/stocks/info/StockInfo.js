@@ -63,8 +63,7 @@ class StockInfo extends Component {
                   {(Math.abs(changePercent) * 100).toFixed(2)}%
                 </span>
               </p>
-              <button class="buybutton" src={buybutton}/>
-              <button class="sellbutton" src={sellbutton}/>
+             
             </div>}
         </div>
 

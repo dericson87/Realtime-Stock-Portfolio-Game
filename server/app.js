@@ -35,7 +35,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -43,20 +43,21 @@ app.use('/users', usersRouter);
 //app.use('/api', (req, res) => res.send('hello from api'));
 // User data
 var users = {
-  "Derek": ['AAPL', 'TSLA', null],
-  "Ricardo": {cash: 0, holdings: [{ ticker: 'TSLA', units: 100}, {ticket:'AAPL', units:10}]},
-  "Monica": {cash: 100000, holdings: []},
-  "rramosrosales@gmail.com": {name:"Ricardo Ramos", stocks:[]}
 };
 
-app.use('/api/users', (req, res)=>{
+app.get('/api/user_name', (req, res)=> {
+  res.send(req.user.displayName);
+});
+app.use('/api/user_stocks', (req, res)=>{
   console.log('>> in /api/users');
   console.log(req);
-  res.send( users);
+  if(req.user != null) {
+    res.send( users[req.user.google_id]);
+  }
 });
 app.use('/api/set-stocks', (req, res)=>{
   console.log(req);
-  users[req.body.user] = req.body.stocks;
+  users[req.user.google_id] = req.body.stocks;
   res.send('OK');
 });
 
@@ -69,41 +70,47 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   console.log('deserializeUser: ');
   console.log(user);
-  done(null, { ricardo: 'hello'});
+  done(null, { google_id: user.id, displayName: user.displayName });
 });
 
 passport.use(new GoogleStrategy({
     clientID: '561311346728-12kk21om7rjfksssh4qg9qi27qu568kp.apps.googleusercontent.com',
     clientSecret: 'RaSICxnN0JwM9XYc7Oli0_Z2',
-    callbackURL: "http://localhost:3001/loggedin"
+    callbackURL: "http://localhost:4000/loggedin"
   },
   function(accessToken, refreshToken, profile, done) {
       console.log("After login");
       console.log(profile);
-      //  User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //    console.log('finduserorcreate');
-      //    return done(err, user);
-      //  });
+
+      if(!users.hasOwnProperty(profile.id)) {
+        users[profile.id] = [null, null, null, null, null];
+      }
+
       return done(null, profile);
   }
 ));
-app.get('/loggedin',
-	passport.authenticate( 'google', {
-		successRedirect: 'http://localhost:3001/dashboardx',
-		failureRedirect: '/login'
-  })
-);
+
+app.use('/logout',
+function(req, res){
+  req.logout();
+  res.redirect('http://localhost:3000/');
+});
+
 app.get('/login', 
   passport.authenticate('google', {
     scope: 'https://www.googleapis.com/auth/plus.login'
-  },
-  (args) => {
-    console.log('signed in: ' + args);
-  }),
-  function(req, res) {
-    console.log('google login succesful');
-    res.redirect('/');
-  });
+  }));
+
+  app.get('/loggedin',
+	passport.authenticate( 'google', {
+		successRedirect: 'http://localhost:3000/',
+		failureRedirect: '/failed'
+  })
+);
+
+app.get("/failed", (req, res)=>{
+  res.send("Failed to log in!");
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
