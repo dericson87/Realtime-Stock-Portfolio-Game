@@ -1,8 +1,9 @@
 /* App styles */
-#currentwrap {
-  margin:0 !important;
-  float:left !important;
- 
+
+#currentwrap, #homebutton {
+  -webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
     background-size:cover;
     background-position:center;
     background-attachment:fixed;
-  color: black;
+
   font-family: 'Old Standard TT', serif;
   text-align: center;
 
@@ -39,15 +40,13 @@ p, h3, h6 {
 }
 
 header {
-  height: 250px;
+  height: 200px;
   align-items: center;
 }
 
-
-
 a:hover {
   text-decoration: none;
-}
+} 
 
 main {
   width: 100%;
@@ -91,12 +90,16 @@ main {
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-image:url("../src/images/greendolla.jpg");
+  background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
   background-color:whitesmoke;
   box-shadow: 0px 5px 10px black;
   border-radius: 5px;
   color:black;
-  background-color:whitesmoke;
-  opacity:0.9;
+  opacity:1;
+  font-weight: 900;
 }
 
 .stock-item-wrapper,
@@ -106,6 +109,7 @@ main {
   height: 275px;
   margin: 5px;
   border-radius: 5px;
+  opacity:0.9;
 }
 
 .stock-item-wrapper .delete-button {
@@ -116,16 +120,26 @@ main {
   padding: 10px;
   border-radius: 0px 5px 0px 20px;
   cursor: pointer;
+  
 }
 
 .stock-item-wrapper:hover .delete-button {
   opacity: 1;
 }
-
+.stock-item:hover {
+ 
+ 
+}
+.delete-button {
+  color:white;
+}
 .stock-item-wrapper .delete-button:hover {
   background-color: rgb(211, 42, 42);
-  color: #ccc;
+  font-family: 'Futura';
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
 }
+
 
 .stock-item-data {
   margin: 5px 5px;

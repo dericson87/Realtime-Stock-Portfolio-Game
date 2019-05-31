@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session");
 var bodyParser = require("body-parser");
+var mongoose = require('mongoose');
 
 
 var indexRouter = require('./routes/index');
@@ -14,6 +15,20 @@ var app = express();
 // Loggin code
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  if (db.collection('users') == null) {
+    db.createCollection('users', (err, res) => {
+      if(err) throw err;
+      console.log('Created users collection.');
+    });
+  }
+});
+
 
 app.use(session({ secret: "cats" }));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,8 +57,8 @@ app.use('/users', usersRouter);
 
 //app.use('/api', (req, res) => res.send('hello from api'));
 // User data
-var users = {
-};
+// var users = {
+// };
 
 app.get('/api/user_name', (req, res)=> {
   res.send(req.user.displayName);
@@ -52,13 +67,29 @@ app.use('/api/user_stocks', (req, res)=>{
   console.log('>> in /api/users');
   console.log(req);
   if(req.user != null) {
-    res.send( users[req.user.google_id]);
+    //res.send( users[req.user.google_id]);
+    db.collection('users').findOne({
+      id: req.user.google_id
+    }, (err, user) => {
+      if(err) throw err;
+      console.log('>>> user.stocks');
+      console.log(user);
+      res.send(user.stocks);
+    });
   }
 });
 app.use('/api/set-stocks', (req, res)=>{
   console.log(req);
-  users[req.user.google_id] = req.body.stocks;
-  res.send('OK');
+  //users[req.user.google_id] = req.body.stocks;
+  db.collection('users').updateOne({
+    id: req.user.google_id
+  },
+  {
+   $set:{ stocks: req.body.stocks }
+  }, (err, result) => {
+    if (err) throw err;
+    res.send('OK');
+  });
 });
 
 passport.serializeUser(function(user, done) {
@@ -82,9 +113,22 @@ passport.use(new GoogleStrategy({
       console.log("After login");
       console.log(profile);
 
-      if(!users.hasOwnProperty(profile.id)) {
-        users[profile.id] = [null, null, null, null, null];
-      }
+      // if(!users.hasOwnProperty(profile.id)) {
+      //   users[profile.id] = [null, null, null, null, null];
+      // }
+      db.collection('users').findOne({id: profile.id}, (err, user) => {
+        if (err) throw err;
+        if(user) return;
+
+        db.collection('users').insertOne({
+          id: profile.id,
+          stocks: [null, null, null, null, null]
+        }, function(err, res) {
+          if (err) throw err;
+          console.log("Added new user: " + profile.displayName);
+          //db.close();
+        });
+      });
 
       return done(null, profile);
   }

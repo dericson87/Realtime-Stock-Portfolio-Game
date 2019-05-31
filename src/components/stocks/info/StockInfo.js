@@ -50,7 +50,7 @@ class StockInfo extends Component {
           <h1 className='stock-symbol'>{symbol}</h1> 
 
           {stockData && <i className='stock-company-name'>({companyName})</i>}
-
+      
           {stockData && 
             <div id="currentwrap" className='current'>
               <h3>${latestPrice.toFixed(2)}</h3>
@@ -88,7 +88,7 @@ class StockInfo extends Component {
 
         <Link to='/'>
           
-            <img class="homebutton" src={homebutton} alt="Home Page"/>
+            <img id="homebutton" class="homebutton" src={homebutton} alt="Home Page"/>
           
         </Link>
       </div>
