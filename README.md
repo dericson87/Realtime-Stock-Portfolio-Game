@@ -13,8 +13,6 @@ Node modules used:
 
 -Passport-Google-OAuth
 
--Express-Session
-
 -Moment
 
 API:
