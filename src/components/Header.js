@@ -18,7 +18,7 @@ class Header extends Component {
   state = { userName: '' }
 
   componentDidMount() {
-    axios.get('/api/user_name', {withCredentials: true}).then((res)=>{
+    axios.get('https://stockappbackend.herokuapp.com/api/user_name', {withCredentials: true}).then((res)=>{
       console.log(res);
       this.setState({ userName: res.data });
     });
