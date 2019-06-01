@@ -27,7 +27,7 @@ class App extends Component {
       this.setState({ stocks: res.data });
     });
     this.fetchStocksData(); // fetch stock data on mount
-    //setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
+    setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
   }
 
   fetchStocksData = async () => {
