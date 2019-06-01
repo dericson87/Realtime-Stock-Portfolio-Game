@@ -33,7 +33,7 @@ API:
 
 -Mongo to store user data (stored by Google ID)-> page will display your full name after logging in
 
-Heroku App Link: https://stocktracka.herokuapp.com/
+# Heroku App Link: https://stocktracka.herokuapp.com/
 
 ```
 Login Page
