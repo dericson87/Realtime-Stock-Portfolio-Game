@@ -49,7 +49,7 @@ class App extends Component {
       stocks: updatedStocks,
     });
 
-    axios.post('https://stockappbackend.herokuapp.com/api/set-stocks', { stocks: updatedStocks });
+    axios.post('https://stockappbackend.herokuapp.com/api/set-stocks', { stocks: updatedStocks }, {withCredentials: true});
     this.fetchStocksData();
   };
 
