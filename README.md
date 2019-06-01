@@ -2,11 +2,17 @@
 Mongo-Express-React-Node Application
 
 Node modules used:
+
 -Passport
+
 -Mongoose
+
 -Axios
+
 -CORS
+
 -Passport-Google-OAuth
+
 -Express-Session
 
 API:
