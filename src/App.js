@@ -33,7 +33,7 @@ class App extends Component {
   fetchStocksData = async () => {
     const { stocks } = this.state
 
-    const resp = await axios.post('https://stockappbackend.herokuapp.com/api/get-stocks', { stocks: updatedStocks }, {withCredentials: true});
+    const resp = await axios.post('https://stockappbackend.herokuapp.com/api/get-stocks', { stocks: stocks }, {withCredentials: true});
 
     this.setState({
       stocksData: resp.data
