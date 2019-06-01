@@ -6,12 +6,12 @@ import stocklogo from '../images/stocklogo.png';
 
 function onLogin(event) {
   console.log('onLogin');
-  window.location.href = 'http://localhost:4000/login';
+  window.location.href = '/login';
 }
 
 function onLogout(event) {
   console.log('onLogout');
-  window.location.href = 'http://localhost:4000/logout';
+  window.location.href = '/logout';
 }
 
 class Header extends Component {

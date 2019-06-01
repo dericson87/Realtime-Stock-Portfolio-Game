@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost/stock-tracker', {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // we're connected!
+  // we're connected!–––
   if (db.collection('users') == null) {
     db.createCollection('users', (err, res) => {
       if(err) throw err;
@@ -35,7 +35,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static("../build"));
+// app.use(express.static("../build"));
+
+// app.use(/\/((?!api).)*/, express.static("../build"));
+// app.use(/\/((?!loggedin).)*/, express.static("../build"));
+// app.use(/\/((?!login).)*/, express.static("../build"));
+// app.use(/\/((?!logout).)*/, express.static("../build"));
 
 // Express will serve up the front-end index.html file if it doesn't recognize the route
 // app.get("/dashboard", (req, res) =>
@@ -149,14 +154,43 @@ app.get('/login',
 
   app.get('/loggedin',
 	passport.authenticate( 'google', {
-		successRedirect: 'http://localhost:3000/',
+		successRedirect: '/',
 		failureRedirect: '/failed'
   })
 );
 
 app.get("/failed", (req, res)=>{
   res.send("Failed to log in!");
-})
+});
+
+var unless = function(path, middleware) {
+  return function(req, res, next) {
+      if (path === req.path) {
+          return next();
+      } else {
+          return middleware(req, res, next);
+      }
+  };
+};
+
+//app.use(express.static("build"));
+app.get("*", (req, res) =>{
+  console.log('>>> Req.URL: ' + req.url);
+  if(req.url=='/' || req.url=='/index.html') {
+    res.sendFile(path.join("build", "index.html"));  
+    return;
+  }
+  res.sendFile(path.join("build", req.url));
+}
+);
+
+// app.use(unless('/login', express.static("../build")));
+// app.use(unless('/logout', express.static("../build")));
+// app.use(unless('/loggedin', express.static("../build")));
+// app.use(unless('/api/user_stocks', express.static("../build")));
+// app.use(unless('/api/user_name', express.static("../build")));
+// app.use(unless('/failed', express.static("../build")));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

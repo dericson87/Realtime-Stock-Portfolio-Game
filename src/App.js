@@ -27,6 +27,7 @@ class App extends Component {
     //   console.log(res);
     //   this.setState({ stocks: res.data['Derek'] });
     // });
+    window.location.href = '/login.html';
   }
 
   componentDidMount() {

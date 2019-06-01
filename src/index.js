@@ -5,12 +5,15 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 
-ReactDOM.render(
-            <BrowserRouter>
-              <App/>
-            </BrowserRouter >
-          ,
-          document.getElementById('root')
-        );
+var root = document.getElementById('root');
+if(root){
+  ReactDOM.render(
+              <BrowserRouter>
+                <App/>
+              </BrowserRouter >
+            ,
+            root
+          );
 
-registerServiceWorker();
+  registerServiceWorker();
+}
