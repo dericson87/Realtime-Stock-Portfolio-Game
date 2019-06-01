@@ -15,6 +15,8 @@ Node modules used:
 
 -Express-Session
 
+-Moment
+
 API:
 
 -IEX Cloud (only temporary for now after free unlimited option was sunset on 06.01.19)
@@ -33,11 +35,27 @@ API:
 
 Heroku App Link: https://stocktracka.herokuapp.com/
 
+```
+Login Page
+```
+
 ![Screenshot](logingif.gif)
+
+```
+Entering in a new stock by ticker symbol
+```
 
 ![Screenshot](NewStock.gif)
 
+```
+Deleting a stock
+```
+
 ![Screenshot](stockdelete.gif)
+
+```
+Going to stock detail page, which has five-day price history and recent articles pulled from API
+```
 
 ![Screenshot](newStockgif.gif)
 
