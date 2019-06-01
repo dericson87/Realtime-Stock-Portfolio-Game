@@ -19,11 +19,11 @@ class StockForm extends Component {
     const { index } = this.props
     const { symbol } = this.state
 
-    try {
-      const resp = await axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/quote/change?token=pk_d2e30089dca044a28553effb79d92a26`)
-      resp && this.props.updateStocks(index, symbol)
-    } 
-    catch(error) {
+    axios.post('https://stockappbackend.herokuapp.com/api/set-stocks', { stocks: [symbol] }, {withCredentials: true})
+    .then((res)=>{
+      this.props.updateStocks(index, symbol);
+    })
+    .catch((err)=>{
       this.setState({
         symbol: '',
         placeholder: 'Invalid Symbol'
@@ -33,8 +33,7 @@ class StockForm extends Component {
           placeholder: 'Enter A Symbol'
         });
       }, 1000);
-    }
-    
+    });    
   }
 
   render() {
