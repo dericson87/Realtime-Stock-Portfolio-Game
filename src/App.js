@@ -33,7 +33,7 @@ class App extends Component {
   fetchStocksData = async () => {
     const { stocks } = this.state
 
-    const resp = await axios.get(`https://cloud.iexapis.com/stable/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,logo,chart&token=pk_d2e30089dca044a28553effb79d92a26`);
+    const resp = await axios.post('https://stockappbackend.herokuapp.com/api/get-stocks', { stocks: updatedStocks }, {withCredentials: true});
 
     this.setState({
       stocksData: resp.data
