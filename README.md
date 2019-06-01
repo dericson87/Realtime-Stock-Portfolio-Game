@@ -15,6 +15,6 @@ API:
 
 Heroku App Link: https://stocktracka.herokuapp.com/
 
-![Screenshot](loginpage)
+![Screenshot](loginpage.png)
 
 ![Screenshot](StockApp.mov)
