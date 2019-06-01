@@ -27,7 +27,7 @@ class App extends Component {
       this.setState({ stocks: res.data });
     });
     this.fetchStocksData(); // fetch stock data on mount
-    setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
+    //setInterval(this.fetchStocksData, 2000); // fetch data every 2 seconds
   }
 
   fetchStocksData = async () => {
@@ -44,12 +44,13 @@ class App extends Component {
     let updatedStocks = [...this.state.stocks];
     updatedStocks[idx] = symbol;
 
+    console.log('>>> updated stocks: ' + updatedStocks);
     this.setState({
       stocks: updatedStocks,
-    })
+    });
 
-    this.fetchStocksData();
     axios.post('https://stockappbackend.herokuapp.com/api/set-stocks', { stocks: updatedStocks });
+    this.fetchStocksData();
   };
 
   render() {
