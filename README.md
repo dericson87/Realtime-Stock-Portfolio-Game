@@ -35,7 +35,7 @@ Heroku App Link: https://stocktracka.herokuapp.com/
 
 ![Screenshot](logingif.gif)
 
-![Screenshot](NewStock.gif)
+![Screenshot](newStockgif.gif)
 
 ![Screenshot](stockdelete.gif)
 
