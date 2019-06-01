@@ -20,7 +20,7 @@ const StockItem = ({ index, symbol, stockData, updateStocks }) => {
         { stockData ?
           <div className='stock-item-data'>
            stockData.logo && <img src={stockData.logo.url}/>
-            <p>${stockData.quote.latestPrice}</p>
+            <p>${latestPrice}</p>
             <p style={{color: change === 0 ? '#333' : change > 0 ? 'green' : 'red'}}>
               <span>{change.toFixed(2)} </span>
               <span> {change > 0 ? <i className="fa fa-chevron-up"></i> : <i className="fa fa-chevron-down"></i>}</span>

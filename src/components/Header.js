@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import User from '../User';
 import axios from 'axios';
 import stocklogo from '../images/stocklogo.png';
 
