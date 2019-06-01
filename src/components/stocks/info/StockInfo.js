@@ -45,8 +45,8 @@ class StockInfo extends Component {
     return(
       <div className='stock-details'>
         <div className='stock-header'>
-          {<div className='stock-logo' style={{ backgroundImage: `url(${logo})`}}></div>}
-
+          {stockData && <div className='stock-logo' style={{ backgroundImage: `url(${logo.url})`}}></div>}
+         
           <h1 className='stock-symbol'>{symbol}</h1> 
 
           {stockData && <i className='stock-company-name'>({companyName})</i>}
