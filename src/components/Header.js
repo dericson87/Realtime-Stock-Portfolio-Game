@@ -6,12 +6,12 @@ import stocklogo from '../images/stocklogo.png';
 
 function onLogin(event) {
   console.log('onLogin');
-  window.location.href = '/login';
+  window.location.href = 'https://stockappbackend.herokuapp.com/login';
 }
 
 function onLogout(event) {
   console.log('onLogout');
-  window.location.href = '/logout';
+  window.location.href = 'https://stockappbackend.herokuapp.com/logout';
 }
 
 class Header extends Component {

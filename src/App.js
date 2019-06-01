@@ -19,19 +19,10 @@ class App extends Component {
     }
 
   componentWillMount() {
-    // if(localStorage.getItem('stocks')) {
-    //   let stocks = JSON.parse(localStorage.getItem('stocks'));
-    //   this.setState({ stocks });
-    // }
-    // const users = await axios.get('/api/users').then((res)=>{
-    //   console.log(res);
-    //   this.setState({ stocks: res.data['Derek'] });
-    // });
-    window.location.href = '/login.html';
   }
 
   componentDidMount() {
-    axios.get('/api/user_stocks', {withCredentials: true}).then((res)=>{
+    axios.get('https://stockappbackend.herokuapp.com/api/user_stocks', {withCredentials: true}).then((res)=>{
       console.log(res);
       this.setState({ stocks: res.data });
     });
@@ -58,7 +49,7 @@ class App extends Component {
     })
 
     this.fetchStocksData();
-    axios.post('/api/set-stocks', { stocks: updatedStocks });
+    axios.post('https://stockappbackend.herokuapp.com/api/set-stocks', { stocks: updatedStocks });
   };
 
   render() {
