@@ -19,7 +19,7 @@ const StockItem = ({ index, symbol, stockData, updateStocks }) => {
         <i>{stockData && companyName}</i>
         { stockData ?
           <div className='stock-item-data'>
-            <img src={stockData.logo.url} alt='stock-logo'/>
+           stockData.logo && <img src={stockData.logo.url}/>
             <p>${stockData.quote.latestPrice}</p>
             <p style={{color: change === 0 ? '#333' : change > 0 ? 'green' : 'red'}}>
               <span>{change.toFixed(2)} </span>

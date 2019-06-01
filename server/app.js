@@ -61,10 +61,12 @@ app.use('/users', usersRouter);
 // };
 
 app.get('/api/user_name', (req, res)=> {
-  res.send(req.user.displayName);
+  if(req.user)
+    res.send(req.user.displayName);
+  res.send('');
 });
 app.use('/api/user_stocks', (req, res)=>{
-  console.log('>> in /api/users');
+  console.log('>> in /api/user_stocks');
   console.log(req);
   if(req.user != null) {
     //res.send( users[req.user.google_id]);

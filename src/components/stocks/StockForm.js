@@ -20,7 +20,7 @@ class StockForm extends Component {
     const { symbol } = this.state
 
     try {
-      const resp = await axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/logo`)
+      const resp = await axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/quote/change?token=pk_d2e30089dca044a28553effb79d92a26`)
       resp && this.props.updateStocks(index, symbol)
     } 
     catch(error) {

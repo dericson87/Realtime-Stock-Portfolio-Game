@@ -41,7 +41,7 @@ class App extends Component {
   fetchStocksData = async () => {
     const { stocks } = this.state
 
-    const resp = await axios.get(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,logo,chart`)
+    const resp = await axios.get(`https://cloud.iexapis.com/stable/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,logo,chart&token=pk_d2e30089dca044a28553effb79d92a26`);
 
     this.setState({
       stocksData: resp.data

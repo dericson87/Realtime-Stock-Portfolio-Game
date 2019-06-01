@@ -39,13 +39,13 @@ class StockInfo extends Component {
 
     if (stockData) {
       var { companyName, latestPrice, change, changePercent } = stockData.quote;
-      var { logo } = stockData;
+      var { logo } = stockData.logo;
     }
 
     return(
       <div className='stock-details'>
         <div className='stock-header'>
-          {stockData && <div className='stock-logo' style={{backgroundImage: `url(${logo.url})`}}></div>}
+          {logo && <div className='stock-logo' style={{ backgroundImage: `url(${logo})`}}></div>}
 
           <h1 className='stock-symbol'>{symbol}</h1> 
 
