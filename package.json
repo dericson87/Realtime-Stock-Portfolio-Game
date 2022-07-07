@@ -9,7 +9,7 @@
     "babel-loader": "^7.1.4",
     "concurrently": "^4.1.0",
     "highcharts": "^6.1.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
