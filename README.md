@@ -23,9 +23,9 @@ API:
 
 -Express back-end for user authentication
 
--React front-end (depoloyed separately)
+-React front-end (deployed separately)
 
--Cors module to helps avoid rejection between apps
+-Cors module to help avoid rejection between apps
 
 -IEX Cloud API for stock data and logos
 
@@ -52,7 +52,7 @@ Deleting a stock
 ![Screenshot](stockdelete.gif)
 
 ```
-Going to stock detail page, which has five-day price history and recent articles pulled from API
+Going to stock detail page, which has a five-day price history and recent articles pulled from API
 ```
 
 ![Screenshot](newStockgif.gif)
